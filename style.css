@@ -1,7 +1,7 @@
 body{
     margin:0;
-    background:#0b0b0b;
-    color:white;
+    background:#ffe6f0;
+    color:#5a2a3a;
     font-family:'Playfair Display', serif;
     overflow-x:hidden;
 }
@@ -11,7 +11,7 @@ body{
     position:fixed;
     width:100%;
     height:100vh;
-    background:#000;
+    background:linear-gradient(#ffd1e6,#ffe6f0);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -21,34 +21,25 @@ body{
 
 .lock-content h1{
     font-size:60px;
-    color:#d4af37;
-}
-
-.lock-content p{
-    font-size:18px;
-    margin:20px;
+    color:#ff6fa5;
 }
 
 button{
-    background:#d4af37;
+    background:#ff6fa5;
+    color:white;
     border:none;
     padding:14px 28px;
     border-radius:30px;
     font-size:18px;
+    box-shadow:0 5px 15px rgba(255,111,165,0.4);
 }
 
-/* MAIN CONTENT HIDDEN INITIALLY */
-#mainContent{
-    display:none;
-}
-
-/* SECTIONS */
+/* Sections */
 section{
-    padding:120px 20px;
+    padding:110px 20px;
     text-align:center;
 }
 
-/* Apple-style hero */
 .hero{
     height:100vh;
     display:flex;
@@ -57,13 +48,12 @@ section{
 }
 
 h1{
-    font-size:44px;
-    color:#d4af37;
+    font-size:42px;
+    color:#ff6fa5;
 }
 
 h2{
-    color:#d4af37;
-    margin-bottom:25px;
+    color:#ff6fa5;
 }
 
 p{
@@ -71,21 +61,149 @@ p{
     line-height:1.7;
 }
 
-/* Images */
+/* Photos */
 img{
-    width:90%;
-    border-radius:18px;
-    margin:15px 0;
+    width:92%;
+    border-radius:20px;
+    margin:18px 0;
+    box-shadow:0 8px 20px rgba(255,111,165,0.25);
 }
 
-/* APPLE SCROLL ANIMATION */
+/* Apple-style scroll animation */
 .apple{
     opacity:0;
-    transform:translateY(80px) scale(0.95);
-    transition:all 1.2s ease;
+    transform:translateY(60px);
+    transition:1s ease;
 }
 
 .apple.show{
     opacity:1;
-    transform:translateY(0) scale(1);
+    transform:translateY(0);
 }
+/* FLOATING HEARTS */
+
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.heart{
+    position:absolute;
+    bottom:-20px;
+    color:#ff6fa5;
+    font-size:20px;
+    animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh) scale(1.5);
+        opacity:0;
+    }
+}
+/* TOUCH HEARTS */
+
+.touch-heart{
+    position:fixed;
+    pointer-events:none;
+    font-size:22px;
+    animation:touchFloat 1.5s ease-out forwards;
+    z-index:9999;
+}
+
+@keyframes touchFloat{
+    0%{
+        transform:translate(-50%, -50%) scale(1);
+        opacity:1;
+    }
+    100%{
+        transform:translate(-50%, -150%) scale(1.8);
+        opacity:0;
+    }
+}
+/* HEART BURST */
+
+.burst-heart{
+    position:fixed;
+    pointer-events:none;
+    font-size:24px;
+    animation:burstAnim 2s ease-out forwards;
+    z-index:9999;
+}
+
+@keyframes burstAnim{
+    0%{
+        transform:translate(0,0) scale(0.5);
+        opacity:1;
+    }
+    100%{
+        transform:translate(var(--x), var(--y)) scale(1.6);
+        opacity:0;
+    }
+}
+/* LOVE CARD POPUP */
+
+#loveCard{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:rgba(255,182,193,0.35);
+    backdrop-filter:blur(8px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    pointer-events:none;
+    transition:0.5s;
+    z-index:10000;
+}
+
+#loveCard.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.card-content{
+    background:#ffd1e6;
+    padding:30px 22px;
+    border-radius:25px;
+    width:85%;
+    max-width:350px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(255,111,165,0.4);
+    animation:cardPop 0.6s ease;
+}
+
+.card-content h2{
+    color:#ff6fa5;
+    margin-bottom:15px;
+}
+
+.card-content p{
+    font-size:16px;
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+@keyframes cardPop{
+    0%{
+        transform:scale(0.7);
+        opacity:0;
+    }
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
