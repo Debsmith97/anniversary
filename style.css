@@ -1,0 +1,91 @@
+body{
+    margin:0;
+    background:#0b0b0b;
+    color:white;
+    font-family:'Playfair Display', serif;
+    overflow-x:hidden;
+}
+
+/* LOCK SCREEN */
+#lockScreen{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    z-index:999;
+}
+
+.lock-content h1{
+    font-size:60px;
+    color:#d4af37;
+}
+
+.lock-content p{
+    font-size:18px;
+    margin:20px;
+}
+
+button{
+    background:#d4af37;
+    border:none;
+    padding:14px 28px;
+    border-radius:30px;
+    font-size:18px;
+}
+
+/* MAIN CONTENT HIDDEN INITIALLY */
+#mainContent{
+    display:none;
+}
+
+/* SECTIONS */
+section{
+    padding:120px 20px;
+    text-align:center;
+}
+
+/* Apple-style hero */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+h1{
+    font-size:44px;
+    color:#d4af37;
+}
+
+h2{
+    color:#d4af37;
+    margin-bottom:25px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.7;
+}
+
+/* Images */
+img{
+    width:90%;
+    border-radius:18px;
+    margin:15px 0;
+}
+
+/* APPLE SCROLL ANIMATION */
+.apple{
+    opacity:0;
+    transform:translateY(80px) scale(0.95);
+    transition:all 1.2s ease;
+}
+
+.apple.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
